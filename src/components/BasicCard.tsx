@@ -1,12 +1,26 @@
-import React from "react";
-import Box from "@mui/material/Box";
+import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { DataStore } from 'aws-amplify';
+import { Member } from "../models";
+
 
 export const BasicCard = () => {
+
+  const [member, setMember] = useState<Member[] | null>(null)
+
+  useEffect( () => {
+    const fetchMembers = async () => {
+      const members = await DataStore.query(Member)
+      console.log(members)
+      setMember(members)
+    }
+    fetchMembers()
+  }, [])
+
   return (
     <Card sx={{ minWidth: 500 }}>
       <CardContent>
@@ -21,6 +35,7 @@ export const BasicCard = () => {
         </Typography>
         <Typography variant="body2">
           well meaning and kindly.
+          {member}
           <br />
           {'"a benevolent smile"'}
         </Typography>
