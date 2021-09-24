@@ -1,0 +1,15 @@
+projects:
+  seminar-dev:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/**/*.ts
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: src/API.ts
+        docsFilePath: src/graphql
+        region: eu-central-1
+        apiId: 7igpghoh45h4hdjvse6jycbtxe
+        maxDepth: 2

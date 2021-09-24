@@ -1,0 +1,14 @@
+type Hobbies @model @auth(rules: [{allow: public}]) @key(name: "byMember", fields: ["memberID"]) {
+  id: ID!
+  name: String
+  description: String
+  memberID: ID
+}
+
+type Member @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  forename: String
+  surname: String
+  birthDate: AWSDate
+  Hobbies: [Hobbies] @connection(keyName: "byMember", fields: ["id"])
+}
