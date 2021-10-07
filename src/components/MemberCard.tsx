@@ -15,7 +15,7 @@ export const MemberCard: FunctionComponent<MemberCardProps> = ({
   surname,
 }) => {
   return (
-    <Card sx={{ minWidth: 500, margin: 1 }}>
+    <Card sx={{ width: 300, margin: 1 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Member of DiE Department

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import { FunctionComponent } from "react";
 import { Header } from "./components/AppBar";
 import { MemberCard } from "./components/MemberCard";
@@ -23,13 +23,15 @@ export const App: FunctionComponent = () => {
   }, [setMembersList]);
 
   return (
-    <Box>
+    <>
       <Header />
       <Container
         sx={{
           display: "flex",
+          flexWrap: "wrap",
           justifyContent: "center",
-          margin: "20px",
+          alignItems: "center",
+          margin: "auto",
         }}
       >
         {membersList?.listMembers?.items?.map((member) => (
@@ -40,6 +42,6 @@ export const App: FunctionComponent = () => {
           />
         ))}
       </Container>
-    </Box>
+    </>
   );
 };
