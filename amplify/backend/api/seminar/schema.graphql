@@ -1,3 +1,8 @@
+type Location @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+}
+
 type Hobbies @model @auth(rules: [{allow: public}]) @key(name: "byMember", fields: ["memberID"]) {
   id: ID!
   name: String
@@ -11,4 +16,6 @@ type Member @model @auth(rules: [{allow: public}]) {
   surname: String
   birthDate: AWSDate
   Hobbies: [Hobbies] @connection(keyName: "byMember", fields: ["id"])
+  Location: Location @connection
 }
+ 
