@@ -7,6 +7,7 @@ import awsconfig from "./aws-exports";
 import { Amplify, API } from "aws-amplify";
 import { ListMembersQuery } from "./API";
 import * as queries from "./graphql/queries";
+import { FormCard } from "./components/FormCard";
 Amplify.configure(awsconfig);
 
 export const App: FunctionComponent = () => {
@@ -31,7 +32,7 @@ export const App: FunctionComponent = () => {
           flexWrap: "wrap",
           justifyContent: "center",
           margin: "20px",
-          maxWidth: "700px"
+          maxWidth: "700px",
         }}
       >
         {membersList?.listMembers?.items?.map((member) => (
@@ -41,6 +42,7 @@ export const App: FunctionComponent = () => {
             surname={member?.surname ? member.surname : ""}
           />
         ))}
+        <FormCard />
       </Container>
     </>
   );
