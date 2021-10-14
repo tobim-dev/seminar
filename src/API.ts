@@ -2,21 +2,17 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateHobbiesInput = {
+export type CreateLocationInput = {
   id?: string | null,
   name?: string | null,
-  description?: string | null,
-  memberID?: string | null,
   _version?: number | null,
 };
 
-export type ModelHobbiesConditionInput = {
+export type ModelLocationConditionInput = {
   name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  memberID?: ModelIDInput | null,
-  and?: Array< ModelHobbiesConditionInput | null > | null,
-  or?: Array< ModelHobbiesConditionInput | null > | null,
-  not?: ModelHobbiesConditionInput | null,
+  and?: Array< ModelLocationConditionInput | null > | null,
+  or?: Array< ModelLocationConditionInput | null > | null,
+  not?: ModelLocationConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -57,6 +53,45 @@ export type ModelSizeInput = {
   ge?: number | null,
   gt?: number | null,
   between?: Array< number | null > | null,
+};
+
+export type Location = {
+  __typename: "Location",
+  id: string,
+  name?: string | null,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateLocationInput = {
+  id: string,
+  name?: string | null,
+  _version?: number | null,
+};
+
+export type DeleteLocationInput = {
+  id: string,
+  _version?: number | null,
+};
+
+export type CreateHobbiesInput = {
+  id?: string | null,
+  name?: string | null,
+  description?: string | null,
+  memberID?: string | null,
+  _version?: number | null,
+};
+
+export type ModelHobbiesConditionInput = {
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  memberID?: ModelIDInput | null,
+  and?: Array< ModelHobbiesConditionInput | null > | null,
+  or?: Array< ModelHobbiesConditionInput | null > | null,
+  not?: ModelHobbiesConditionInput | null,
 };
 
 export type ModelIDInput = {
@@ -107,6 +142,7 @@ export type CreateMemberInput = {
   surname?: string | null,
   birthDate?: string | null,
   _version?: number | null,
+  memberLocationId?: string | null,
 };
 
 export type ModelMemberConditionInput = {
@@ -129,6 +165,7 @@ export type Member = {
   _lastChangedAt: number,
   createdAt: string,
   updatedAt: string,
+  Location?: Location | null,
   Hobbies?: ModelHobbiesConnection | null,
 };
 
@@ -145,11 +182,27 @@ export type UpdateMemberInput = {
   surname?: string | null,
   birthDate?: string | null,
   _version?: number | null,
+  memberLocationId?: string | null,
 };
 
 export type DeleteMemberInput = {
   id: string,
   _version?: number | null,
+};
+
+export type ModelLocationFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  and?: Array< ModelLocationFilterInput | null > | null,
+  or?: Array< ModelLocationFilterInput | null > | null,
+  not?: ModelLocationFilterInput | null,
+};
+
+export type ModelLocationConnection = {
+  __typename: "ModelLocationConnection",
+  items?:  Array<Location | null > | null,
+  nextToken?: string | null,
+  startedAt?: number | null,
 };
 
 export type ModelHobbiesFilterInput = {
@@ -177,6 +230,60 @@ export type ModelMemberConnection = {
   items?:  Array<Member | null > | null,
   nextToken?: string | null,
   startedAt?: number | null,
+};
+
+export type CreateLocationMutationVariables = {
+  input: CreateLocationInput,
+  condition?: ModelLocationConditionInput | null,
+};
+
+export type CreateLocationMutation = {
+  createLocation?:  {
+    __typename: "Location",
+    id: string,
+    name?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateLocationMutationVariables = {
+  input: UpdateLocationInput,
+  condition?: ModelLocationConditionInput | null,
+};
+
+export type UpdateLocationMutation = {
+  updateLocation?:  {
+    __typename: "Location",
+    id: string,
+    name?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteLocationMutationVariables = {
+  input: DeleteLocationInput,
+  condition?: ModelLocationConditionInput | null,
+};
+
+export type DeleteLocationMutation = {
+  deleteLocation?:  {
+    __typename: "Location",
+    id: string,
+    name?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
 };
 
 export type CreateHobbiesMutationVariables = {
@@ -256,6 +363,16 @@ export type CreateMemberMutation = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    Location?:  {
+      __typename: "Location",
+      id: string,
+      name?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
     Hobbies?:  {
       __typename: "ModelHobbiesConnection",
       nextToken?: string | null,
@@ -281,6 +398,16 @@ export type UpdateMemberMutation = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    Location?:  {
+      __typename: "Location",
+      id: string,
+      name?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
     Hobbies?:  {
       __typename: "ModelHobbiesConnection",
       nextToken?: string | null,
@@ -306,11 +433,87 @@ export type DeleteMemberMutation = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    Location?:  {
+      __typename: "Location",
+      id: string,
+      name?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
     Hobbies?:  {
       __typename: "ModelHobbiesConnection",
       nextToken?: string | null,
       startedAt?: number | null,
     } | null,
+  } | null,
+};
+
+export type GetLocationQueryVariables = {
+  id: string,
+};
+
+export type GetLocationQuery = {
+  getLocation?:  {
+    __typename: "Location",
+    id: string,
+    name?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListLocationsQueryVariables = {
+  filter?: ModelLocationFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListLocationsQuery = {
+  listLocations?:  {
+    __typename: "ModelLocationConnection",
+    items?:  Array< {
+      __typename: "Location",
+      id: string,
+      name?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncLocationsQueryVariables = {
+  filter?: ModelLocationFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncLocationsQuery = {
+  syncLocations?:  {
+    __typename: "ModelLocationConnection",
+    items?:  Array< {
+      __typename: "Location",
+      id: string,
+      name?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+    startedAt?: number | null,
   } | null,
 };
 
@@ -402,6 +605,16 @@ export type GetMemberQuery = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    Location?:  {
+      __typename: "Location",
+      id: string,
+      name?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
     Hobbies?:  {
       __typename: "ModelHobbiesConnection",
       nextToken?: string | null,
@@ -463,6 +676,45 @@ export type SyncMembersQuery = {
   } | null,
 };
 
+export type OnCreateLocationSubscription = {
+  onCreateLocation?:  {
+    __typename: "Location",
+    id: string,
+    name?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateLocationSubscription = {
+  onUpdateLocation?:  {
+    __typename: "Location",
+    id: string,
+    name?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteLocationSubscription = {
+  onDeleteLocation?:  {
+    __typename: "Location",
+    id: string,
+    name?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type OnCreateHobbiesSubscription = {
   onCreateHobbies?:  {
     __typename: "Hobbies",
@@ -520,6 +772,16 @@ export type OnCreateMemberSubscription = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    Location?:  {
+      __typename: "Location",
+      id: string,
+      name?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
     Hobbies?:  {
       __typename: "ModelHobbiesConnection",
       nextToken?: string | null,
@@ -540,6 +802,16 @@ export type OnUpdateMemberSubscription = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    Location?:  {
+      __typename: "Location",
+      id: string,
+      name?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
     Hobbies?:  {
       __typename: "ModelHobbiesConnection",
       nextToken?: string | null,
@@ -560,6 +832,16 @@ export type OnDeleteMemberSubscription = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    Location?:  {
+      __typename: "Location",
+      id: string,
+      name?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
     Hobbies?:  {
       __typename: "ModelHobbiesConnection",
       nextToken?: string | null,

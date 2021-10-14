@@ -30,8 +30,8 @@ export const App: FunctionComponent = () => {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          alignItems: "center",
-          margin: "auto",
+          margin: "20px",
+          maxWidth: "700px"
         }}
       >
         {membersList?.listMembers?.items?.map((member) => (

@@ -2,6 +2,54 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createLocation = /* GraphQL */ `
+  mutation CreateLocation(
+    $input: CreateLocationInput!
+    $condition: ModelLocationConditionInput
+  ) {
+    createLocation(input: $input, condition: $condition) {
+      id
+      name
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateLocation = /* GraphQL */ `
+  mutation UpdateLocation(
+    $input: UpdateLocationInput!
+    $condition: ModelLocationConditionInput
+  ) {
+    updateLocation(input: $input, condition: $condition) {
+      id
+      name
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteLocation = /* GraphQL */ `
+  mutation DeleteLocation(
+    $input: DeleteLocationInput!
+    $condition: ModelLocationConditionInput
+  ) {
+    deleteLocation(input: $input, condition: $condition) {
+      id
+      name
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createHobbies = /* GraphQL */ `
   mutation CreateHobbies(
     $input: CreateHobbiesInput!
@@ -71,6 +119,15 @@ export const createMember = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Location {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
       Hobbies {
         nextToken
         startedAt
@@ -93,6 +150,15 @@ export const updateMember = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Location {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
       Hobbies {
         nextToken
         startedAt
@@ -115,6 +181,15 @@ export const deleteMember = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Location {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
       Hobbies {
         nextToken
         startedAt

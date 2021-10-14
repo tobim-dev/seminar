@@ -2,6 +2,45 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateLocation = /* GraphQL */ `
+  subscription OnCreateLocation {
+    onCreateLocation {
+      id
+      name
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateLocation = /* GraphQL */ `
+  subscription OnUpdateLocation {
+    onUpdateLocation {
+      id
+      name
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteLocation = /* GraphQL */ `
+  subscription OnDeleteLocation {
+    onDeleteLocation {
+      id
+      name
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateHobbies = /* GraphQL */ `
   subscription OnCreateHobbies {
     onCreateHobbies {
@@ -59,6 +98,15 @@ export const onCreateMember = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Location {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
       Hobbies {
         nextToken
         startedAt
@@ -78,6 +126,15 @@ export const onUpdateMember = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Location {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
       Hobbies {
         nextToken
         startedAt
@@ -97,6 +154,15 @@ export const onDeleteMember = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Location {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
       Hobbies {
         nextToken
         startedAt
