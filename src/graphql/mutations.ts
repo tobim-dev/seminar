@@ -2,14 +2,15 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createLocation = /* GraphQL */ `
-  mutation CreateLocation(
-    $input: CreateLocationInput!
-    $condition: ModelLocationConditionInput
+export const createPet = /* GraphQL */ `
+  mutation CreatePet(
+    $input: CreatePetInput!
+    $condition: ModelPetConditionInput
   ) {
-    createLocation(input: $input, condition: $condition) {
+    createPet(input: $input, condition: $condition) {
       id
-      name
+      kind
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -18,14 +19,15 @@ export const createLocation = /* GraphQL */ `
     }
   }
 `;
-export const updateLocation = /* GraphQL */ `
-  mutation UpdateLocation(
-    $input: UpdateLocationInput!
-    $condition: ModelLocationConditionInput
+export const updatePet = /* GraphQL */ `
+  mutation UpdatePet(
+    $input: UpdatePetInput!
+    $condition: ModelPetConditionInput
   ) {
-    updateLocation(input: $input, condition: $condition) {
+    updatePet(input: $input, condition: $condition) {
       id
-      name
+      kind
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -34,14 +36,15 @@ export const updateLocation = /* GraphQL */ `
     }
   }
 `;
-export const deleteLocation = /* GraphQL */ `
-  mutation DeleteLocation(
-    $input: DeleteLocationInput!
-    $condition: ModelLocationConditionInput
+export const deletePet = /* GraphQL */ `
+  mutation DeletePet(
+    $input: DeletePetInput!
+    $condition: ModelPetConditionInput
   ) {
-    deleteLocation(input: $input, condition: $condition) {
+    deletePet(input: $input, condition: $condition) {
       id
-      name
+      kind
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -50,16 +53,15 @@ export const deleteLocation = /* GraphQL */ `
     }
   }
 `;
-export const createHobbies = /* GraphQL */ `
-  mutation CreateHobbies(
-    $input: CreateHobbiesInput!
-    $condition: ModelHobbiesConditionInput
+export const createOfficeWorkedIn = /* GraphQL */ `
+  mutation CreateOfficeWorkedIn(
+    $input: CreateOfficeWorkedInInput!
+    $condition: ModelOfficeWorkedInConditionInput
   ) {
-    createHobbies(input: $input, condition: $condition) {
+    createOfficeWorkedIn(input: $input, condition: $condition) {
       id
       name
-      description
-      memberID
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -68,16 +70,15 @@ export const createHobbies = /* GraphQL */ `
     }
   }
 `;
-export const updateHobbies = /* GraphQL */ `
-  mutation UpdateHobbies(
-    $input: UpdateHobbiesInput!
-    $condition: ModelHobbiesConditionInput
+export const updateOfficeWorkedIn = /* GraphQL */ `
+  mutation UpdateOfficeWorkedIn(
+    $input: UpdateOfficeWorkedInInput!
+    $condition: ModelOfficeWorkedInConditionInput
   ) {
-    updateHobbies(input: $input, condition: $condition) {
+    updateOfficeWorkedIn(input: $input, condition: $condition) {
       id
       name
-      description
-      memberID
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -86,16 +87,15 @@ export const updateHobbies = /* GraphQL */ `
     }
   }
 `;
-export const deleteHobbies = /* GraphQL */ `
-  mutation DeleteHobbies(
-    $input: DeleteHobbiesInput!
-    $condition: ModelHobbiesConditionInput
+export const deleteOfficeWorkedIn = /* GraphQL */ `
+  mutation DeleteOfficeWorkedIn(
+    $input: DeleteOfficeWorkedInInput!
+    $condition: ModelOfficeWorkedInConditionInput
   ) {
-    deleteHobbies(input: $input, condition: $condition) {
+    deleteOfficeWorkedIn(input: $input, condition: $condition) {
       id
       name
-      description
-      memberID
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -104,93 +104,99 @@ export const deleteHobbies = /* GraphQL */ `
     }
   }
 `;
-export const createMember = /* GraphQL */ `
-  mutation CreateMember(
-    $input: CreateMemberInput!
-    $condition: ModelMemberConditionInput
+export const createPerson = /* GraphQL */ `
+  mutation CreatePerson(
+    $input: CreatePersonInput!
+    $condition: ModelPersonConditionInput
   ) {
-    createMember(input: $input, condition: $condition) {
+    createPerson(input: $input, condition: $condition) {
       id
-      forename
-      surname
-      birthDate
+      surveyPosition
+      currentOffice
+      wishOffice
+      superheroAbility
+      projectFantasyName
+      jobForOneDay
+      newHobby
+      pizzaEstimate
+      wishForNextBereichsseminar
+      productIdea
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Location {
-        id
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+      Pets {
+        nextToken
+        startedAt
       }
-      Hobbies {
+      OfficeWorkedIns {
         nextToken
         startedAt
       }
     }
   }
 `;
-export const updateMember = /* GraphQL */ `
-  mutation UpdateMember(
-    $input: UpdateMemberInput!
-    $condition: ModelMemberConditionInput
+export const updatePerson = /* GraphQL */ `
+  mutation UpdatePerson(
+    $input: UpdatePersonInput!
+    $condition: ModelPersonConditionInput
   ) {
-    updateMember(input: $input, condition: $condition) {
+    updatePerson(input: $input, condition: $condition) {
       id
-      forename
-      surname
-      birthDate
+      surveyPosition
+      currentOffice
+      wishOffice
+      superheroAbility
+      projectFantasyName
+      jobForOneDay
+      newHobby
+      pizzaEstimate
+      wishForNextBereichsseminar
+      productIdea
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Location {
-        id
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+      Pets {
+        nextToken
+        startedAt
       }
-      Hobbies {
+      OfficeWorkedIns {
         nextToken
         startedAt
       }
     }
   }
 `;
-export const deleteMember = /* GraphQL */ `
-  mutation DeleteMember(
-    $input: DeleteMemberInput!
-    $condition: ModelMemberConditionInput
+export const deletePerson = /* GraphQL */ `
+  mutation DeletePerson(
+    $input: DeletePersonInput!
+    $condition: ModelPersonConditionInput
   ) {
-    deleteMember(input: $input, condition: $condition) {
+    deletePerson(input: $input, condition: $condition) {
       id
-      forename
-      surname
-      birthDate
+      surveyPosition
+      currentOffice
+      wishOffice
+      superheroAbility
+      projectFantasyName
+      jobForOneDay
+      newHobby
+      pizzaEstimate
+      wishForNextBereichsseminar
+      productIdea
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Location {
-        id
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+      Pets {
+        nextToken
+        startedAt
       }
-      Hobbies {
+      OfficeWorkedIns {
         nextToken
         startedAt
       }

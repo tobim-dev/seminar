@@ -1,7 +1,7 @@
 import API, { graphqlOperation } from "@aws-amplify/api";
-import { createMember } from "../graphql/mutations";
-import { Member } from "../models";
+import { CreatePersonInput } from "../API";
+import { createPerson } from "../graphql/mutations";
 
-export const addMember = async (member: Member) => {
-  await API.graphql(graphqlOperation(createMember, { input: member }));
+export const addMember = async (person: CreatePersonInput) => {
+  await API.graphql(graphqlOperation(createPerson, { input: person }));
 };

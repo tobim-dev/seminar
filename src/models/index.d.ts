@@ -4,47 +4,54 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
-type LocationMetaData = {
+type PetMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type HobbiesMetaData = {
+type OfficeWorkedInMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type MemberMetaData = {
+type PersonMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-export declare class Location {
+export declare class Pet {
+  readonly id: string;
+  readonly kind?: string;
+  readonly personID?: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Pet, PetMetaData>);
+  static copyOf(source: Pet, mutator: (draft: MutableModel<Pet, PetMetaData>) => MutableModel<Pet, PetMetaData> | void): Pet;
+}
+
+export declare class OfficeWorkedIn {
   readonly id: string;
   readonly name?: string;
+  readonly personID?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Location, LocationMetaData>);
-  static copyOf(source: Location, mutator: (draft: MutableModel<Location, LocationMetaData>) => MutableModel<Location, LocationMetaData> | void): Location;
+  constructor(init: ModelInit<OfficeWorkedIn, OfficeWorkedInMetaData>);
+  static copyOf(source: OfficeWorkedIn, mutator: (draft: MutableModel<OfficeWorkedIn, OfficeWorkedInMetaData>) => MutableModel<OfficeWorkedIn, OfficeWorkedInMetaData> | void): OfficeWorkedIn;
 }
 
-export declare class Hobbies {
+export declare class Person {
   readonly id: string;
-  readonly name?: string;
-  readonly description?: string;
-  readonly memberID?: string;
+  readonly surveyPosition?: number;
+  readonly currentOffice?: string;
+  readonly wishOffice?: string;
+  readonly superheroAbility?: string;
+  readonly projectFantasyName?: string;
+  readonly jobForOneDay?: string;
+  readonly newHobby?: string;
+  readonly pizzaEstimate?: number;
+  readonly wishForNextBereichsseminar?: string;
+  readonly productIdea?: string;
+  readonly OfficeWorkedIns?: (OfficeWorkedIn | null)[];
+  readonly Pets?: (Pet | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Hobbies, HobbiesMetaData>);
-  static copyOf(source: Hobbies, mutator: (draft: MutableModel<Hobbies, HobbiesMetaData>) => MutableModel<Hobbies, HobbiesMetaData> | void): Hobbies;
-}
-
-export declare class Member {
-  readonly id: string;
-  readonly forename?: string;
-  readonly surname?: string;
-  readonly birthDate?: string;
-  readonly Hobbies?: (Hobbies | null)[];
-  readonly Location?: Location;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<Member, MemberMetaData>);
-  static copyOf(source: Member, mutator: (draft: MutableModel<Member, MemberMetaData>) => MutableModel<Member, MemberMetaData> | void): Member;
+  constructor(init: ModelInit<Person, PersonMetaData>);
+  static copyOf(source: Person, mutator: (draft: MutableModel<Person, PersonMetaData>) => MutableModel<Person, PersonMetaData> | void): Person;
 }

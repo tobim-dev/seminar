@@ -5,23 +5,23 @@ import { Header } from "./components/AppBar";
 import { MemberCard } from "./components/MemberCard";
 import awsconfig from "./aws-exports";
 import { Amplify, API } from "aws-amplify";
-import { ListMembersQuery } from "./API";
+import { ListPeopleQuery } from "./API";
 import * as queries from "./graphql/queries";
 import { FormCard } from "./components/FormCard";
 Amplify.configure(awsconfig);
 
 export const App: FunctionComponent = () => {
-  const [membersList, setMembersList] = useState<ListMembersQuery>();
+  const [peopleList, setPeopleList] = useState<ListPeopleQuery>();
 
   useEffect(() => {
     const fetchMembers = async () => {
       const { data: graphQLResponse } = await (API.graphql({
-        query: queries.listMembers,
-      }) as Promise<{ data: ListMembersQuery }>);
-      setMembersList(graphQLResponse);
+        query: queries.listPeople,
+      }) as Promise<{ data: ListPeopleQuery }>);
+      setPeopleList(graphQLResponse);
     };
     fetchMembers();
-  }, [setMembersList]);
+  }, [setPeopleList]);
 
   return (
     <>
@@ -35,11 +35,11 @@ export const App: FunctionComponent = () => {
           maxWidth: "700px",
         }}
       >
-        {membersList?.listMembers?.items?.map((member) => (
+        {peopleList?.listPeople?.items?.map((person) => (
           <MemberCard
-            key={member?.id}
-            forename={member?.forename ? member.forename : ""}
-            surname={member?.surname ? member.surname : ""}
+            key={person?.id}
+            jobForOneDay={person?.jobForOneDay ? person.jobForOneDay : ""}
+            newHobby={person?.newHobby ? person.newHobby : ""}
           />
         ))}
         <FormCard />

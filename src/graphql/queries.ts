@@ -2,11 +2,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getLocation = /* GraphQL */ `
-  query GetLocation($id: ID!) {
-    getLocation(id: $id) {
+export const getPet = /* GraphQL */ `
+  query GetPet($id: ID!) {
+    getPet(id: $id) {
       id
-      name
+      kind
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -15,16 +16,17 @@ export const getLocation = /* GraphQL */ `
     }
   }
 `;
-export const listLocations = /* GraphQL */ `
-  query ListLocations(
-    $filter: ModelLocationFilterInput
+export const listPets = /* GraphQL */ `
+  query ListPets(
+    $filter: ModelPetFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listLocations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listPets(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
+        kind
+        personID
         _version
         _deleted
         _lastChangedAt
@@ -36,14 +38,78 @@ export const listLocations = /* GraphQL */ `
     }
   }
 `;
-export const syncLocations = /* GraphQL */ `
-  query SyncLocations(
-    $filter: ModelLocationFilterInput
+export const syncPets = /* GraphQL */ `
+  query SyncPets(
+    $filter: ModelPetFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncLocations(
+    syncPets(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        kind
+        personID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getOfficeWorkedIn = /* GraphQL */ `
+  query GetOfficeWorkedIn($id: ID!) {
+    getOfficeWorkedIn(id: $id) {
+      id
+      name
+      personID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listOfficeWorkedIns = /* GraphQL */ `
+  query ListOfficeWorkedIns(
+    $filter: ModelOfficeWorkedInFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listOfficeWorkedIns(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        personID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncOfficeWorkedIns = /* GraphQL */ `
+  query SyncOfficeWorkedIns(
+    $filter: ModelOfficeWorkedInFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncOfficeWorkedIns(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -52,6 +118,7 @@ export const syncLocations = /* GraphQL */ `
       items {
         id
         name
+        personID
         _version
         _deleted
         _lastChangedAt
@@ -63,113 +130,55 @@ export const syncLocations = /* GraphQL */ `
     }
   }
 `;
-export const getHobbies = /* GraphQL */ `
-  query GetHobbies($id: ID!) {
-    getHobbies(id: $id) {
+export const getPerson = /* GraphQL */ `
+  query GetPerson($id: ID!) {
+    getPerson(id: $id) {
       id
-      name
-      description
-      memberID
+      surveyPosition
+      currentOffice
+      wishOffice
+      superheroAbility
+      projectFantasyName
+      jobForOneDay
+      newHobby
+      pizzaEstimate
+      wishForNextBereichsseminar
+      productIdea
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-    }
-  }
-`;
-export const listHobbies = /* GraphQL */ `
-  query ListHobbies(
-    $filter: ModelHobbiesFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listHobbies(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        description
-        memberID
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+      Pets {
+        nextToken
+        startedAt
       }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const syncHobbies = /* GraphQL */ `
-  query SyncHobbies(
-    $filter: ModelHobbiesFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncHobbies(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        description
-        memberID
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getMember = /* GraphQL */ `
-  query GetMember($id: ID!) {
-    getMember(id: $id) {
-      id
-      forename
-      surname
-      birthDate
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-      Location {
-        id
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      Hobbies {
+      OfficeWorkedIns {
         nextToken
         startedAt
       }
     }
   }
 `;
-export const listMembers = /* GraphQL */ `
-  query ListMembers(
-    $filter: ModelMemberFilterInput
+export const listPeople = /* GraphQL */ `
+  query ListPeople(
+    $filter: ModelPersonFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listMembers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listPeople(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        forename
-        surname
-        birthDate
+        surveyPosition
+        currentOffice
+        wishOffice
+        superheroAbility
+        projectFantasyName
+        jobForOneDay
+        newHobby
+        pizzaEstimate
+        wishForNextBereichsseminar
+        productIdea
         _version
         _deleted
         _lastChangedAt
@@ -181,14 +190,14 @@ export const listMembers = /* GraphQL */ `
     }
   }
 `;
-export const syncMembers = /* GraphQL */ `
-  query SyncMembers(
-    $filter: ModelMemberFilterInput
+export const syncPeople = /* GraphQL */ `
+  query SyncPeople(
+    $filter: ModelPersonFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncMembers(
+    syncPeople(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -196,9 +205,16 @@ export const syncMembers = /* GraphQL */ `
     ) {
       items {
         id
-        forename
-        surname
-        birthDate
+        surveyPosition
+        currentOffice
+        wishOffice
+        superheroAbility
+        projectFantasyName
+        jobForOneDay
+        newHobby
+        pizzaEstimate
+        wishForNextBereichsseminar
+        productIdea
         _version
         _deleted
         _lastChangedAt

@@ -1,21 +1,28 @@
-type Location @model @auth(rules: [{allow: public}]) {
+type Pet @model @auth(rules: [{allow: public}]) @key(name: "byPerson", fields: ["personID"]) {
   id: ID!
-  name: String
+  kind: String
+  personID: ID
 }
 
-type Hobbies @model @auth(rules: [{allow: public}]) @key(name: "byMember", fields: ["memberID"]) {
+type OfficeWorkedIn @model @auth(rules: [{allow: public}]) @key(name: "byPerson", fields: ["personID"]) {
   id: ID!
   name: String
-  description: String
-  memberID: ID
+  personID: ID
 }
 
-type Member @model @auth(rules: [{allow: public}]) {
+type Person @model @auth(rules: [{allow: public}]) {
   id: ID!
-  forename: String
-  surname: String
-  birthDate: AWSDate
-  Hobbies: [Hobbies] @connection(keyName: "byMember", fields: ["id"])
-  Location: Location @connection
+  surveyPosition: Int
+  currentOffice: String
+  wishOffice: String
+  superheroAbility: String
+  projectFantasyName: String
+  jobForOneDay: String
+  newHobby: String
+  pizzaEstimate: Int
+  wishForNextBereichsseminar: String
+  productIdea: String
+  OfficeWorkedIns: [OfficeWorkedIn] @connection(keyName: "byPerson", fields: ["id"])
+  Pets: [Pet] @connection(keyName: "byPerson", fields: ["id"])
 }
-  
+ 

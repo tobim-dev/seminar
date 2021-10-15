@@ -2,11 +2,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateLocation = /* GraphQL */ `
-  subscription OnCreateLocation {
-    onCreateLocation {
+export const onCreatePet = /* GraphQL */ `
+  subscription OnCreatePet {
+    onCreatePet {
       id
-      name
+      kind
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -15,11 +16,12 @@ export const onCreateLocation = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateLocation = /* GraphQL */ `
-  subscription OnUpdateLocation {
-    onUpdateLocation {
+export const onUpdatePet = /* GraphQL */ `
+  subscription OnUpdatePet {
+    onUpdatePet {
       id
-      name
+      kind
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -28,11 +30,12 @@ export const onUpdateLocation = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteLocation = /* GraphQL */ `
-  subscription OnDeleteLocation {
-    onDeleteLocation {
+export const onDeletePet = /* GraphQL */ `
+  subscription OnDeletePet {
+    onDeletePet {
       id
-      name
+      kind
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -41,13 +44,12 @@ export const onDeleteLocation = /* GraphQL */ `
     }
   }
 `;
-export const onCreateHobbies = /* GraphQL */ `
-  subscription OnCreateHobbies {
-    onCreateHobbies {
+export const onCreateOfficeWorkedIn = /* GraphQL */ `
+  subscription OnCreateOfficeWorkedIn {
+    onCreateOfficeWorkedIn {
       id
       name
-      description
-      memberID
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -56,13 +58,12 @@ export const onCreateHobbies = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateHobbies = /* GraphQL */ `
-  subscription OnUpdateHobbies {
-    onUpdateHobbies {
+export const onUpdateOfficeWorkedIn = /* GraphQL */ `
+  subscription OnUpdateOfficeWorkedIn {
+    onUpdateOfficeWorkedIn {
       id
       name
-      description
-      memberID
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -71,13 +72,12 @@ export const onUpdateHobbies = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteHobbies = /* GraphQL */ `
-  subscription OnDeleteHobbies {
-    onDeleteHobbies {
+export const onDeleteOfficeWorkedIn = /* GraphQL */ `
+  subscription OnDeleteOfficeWorkedIn {
+    onDeleteOfficeWorkedIn {
       id
       name
-      description
-      memberID
+      personID
       _version
       _deleted
       _lastChangedAt
@@ -86,84 +86,90 @@ export const onDeleteHobbies = /* GraphQL */ `
     }
   }
 `;
-export const onCreateMember = /* GraphQL */ `
-  subscription OnCreateMember {
-    onCreateMember {
+export const onCreatePerson = /* GraphQL */ `
+  subscription OnCreatePerson {
+    onCreatePerson {
       id
-      forename
-      surname
-      birthDate
+      surveyPosition
+      currentOffice
+      wishOffice
+      superheroAbility
+      projectFantasyName
+      jobForOneDay
+      newHobby
+      pizzaEstimate
+      wishForNextBereichsseminar
+      productIdea
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Location {
-        id
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+      Pets {
+        nextToken
+        startedAt
       }
-      Hobbies {
+      OfficeWorkedIns {
         nextToken
         startedAt
       }
     }
   }
 `;
-export const onUpdateMember = /* GraphQL */ `
-  subscription OnUpdateMember {
-    onUpdateMember {
+export const onUpdatePerson = /* GraphQL */ `
+  subscription OnUpdatePerson {
+    onUpdatePerson {
       id
-      forename
-      surname
-      birthDate
+      surveyPosition
+      currentOffice
+      wishOffice
+      superheroAbility
+      projectFantasyName
+      jobForOneDay
+      newHobby
+      pizzaEstimate
+      wishForNextBereichsseminar
+      productIdea
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Location {
-        id
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+      Pets {
+        nextToken
+        startedAt
       }
-      Hobbies {
+      OfficeWorkedIns {
         nextToken
         startedAt
       }
     }
   }
 `;
-export const onDeleteMember = /* GraphQL */ `
-  subscription OnDeleteMember {
-    onDeleteMember {
+export const onDeletePerson = /* GraphQL */ `
+  subscription OnDeletePerson {
+    onDeletePerson {
       id
-      forename
-      surname
-      birthDate
+      surveyPosition
+      currentOffice
+      wishOffice
+      superheroAbility
+      projectFantasyName
+      jobForOneDay
+      newHobby
+      pizzaEstimate
+      wishForNextBereichsseminar
+      productIdea
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Location {
-        id
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+      Pets {
+        nextToken
+        startedAt
       }
-      Hobbies {
+      OfficeWorkedIns {
         nextToken
         startedAt
       }

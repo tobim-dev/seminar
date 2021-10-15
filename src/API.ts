@@ -2,17 +2,19 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateLocationInput = {
+export type CreatePetInput = {
   id?: string | null,
-  name?: string | null,
+  kind?: string | null,
+  personID?: string | null,
   _version?: number | null,
 };
 
-export type ModelLocationConditionInput = {
-  name?: ModelStringInput | null,
-  and?: Array< ModelLocationConditionInput | null > | null,
-  or?: Array< ModelLocationConditionInput | null > | null,
-  not?: ModelLocationConditionInput | null,
+export type ModelPetConditionInput = {
+  kind?: ModelStringInput | null,
+  personID?: ModelIDInput | null,
+  and?: Array< ModelPetConditionInput | null > | null,
+  or?: Array< ModelPetConditionInput | null > | null,
+  not?: ModelPetConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -55,45 +57,6 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type Location = {
-  __typename: "Location",
-  id: string,
-  name?: string | null,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
-  createdAt: string,
-  updatedAt: string,
-};
-
-export type UpdateLocationInput = {
-  id: string,
-  name?: string | null,
-  _version?: number | null,
-};
-
-export type DeleteLocationInput = {
-  id: string,
-  _version?: number | null,
-};
-
-export type CreateHobbiesInput = {
-  id?: string | null,
-  name?: string | null,
-  description?: string | null,
-  memberID?: string | null,
-  _version?: number | null,
-};
-
-export type ModelHobbiesConditionInput = {
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  memberID?: ModelIDInput | null,
-  and?: Array< ModelHobbiesConditionInput | null > | null,
-  or?: Array< ModelHobbiesConditionInput | null > | null,
-  not?: ModelHobbiesConditionInput | null,
-};
-
 export type ModelIDInput = {
   ne?: string | null,
   eq?: string | null,
@@ -110,12 +73,11 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type Hobbies = {
-  __typename: "Hobbies",
+export type Pet = {
+  __typename: "Pet",
   id: string,
-  name?: string | null,
-  description?: string | null,
-  memberID?: string | null,
+  kind?: string | null,
+  personID?: string | null,
   _version: number,
   _deleted?: boolean | null,
   _lastChangedAt: number,
@@ -123,125 +85,209 @@ export type Hobbies = {
   updatedAt: string,
 };
 
-export type UpdateHobbiesInput = {
+export type UpdatePetInput = {
   id: string,
-  name?: string | null,
-  description?: string | null,
-  memberID?: string | null,
+  kind?: string | null,
+  personID?: string | null,
   _version?: number | null,
 };
 
-export type DeleteHobbiesInput = {
+export type DeletePetInput = {
   id: string,
   _version?: number | null,
 };
 
-export type CreateMemberInput = {
+export type CreateOfficeWorkedInInput = {
   id?: string | null,
-  forename?: string | null,
-  surname?: string | null,
-  birthDate?: string | null,
+  name?: string | null,
+  personID?: string | null,
   _version?: number | null,
-  memberLocationId?: string | null,
 };
 
-export type ModelMemberConditionInput = {
-  forename?: ModelStringInput | null,
-  surname?: ModelStringInput | null,
-  birthDate?: ModelStringInput | null,
-  and?: Array< ModelMemberConditionInput | null > | null,
-  or?: Array< ModelMemberConditionInput | null > | null,
-  not?: ModelMemberConditionInput | null,
+export type ModelOfficeWorkedInConditionInput = {
+  name?: ModelStringInput | null,
+  personID?: ModelIDInput | null,
+  and?: Array< ModelOfficeWorkedInConditionInput | null > | null,
+  or?: Array< ModelOfficeWorkedInConditionInput | null > | null,
+  not?: ModelOfficeWorkedInConditionInput | null,
 };
 
-export type Member = {
-  __typename: "Member",
+export type OfficeWorkedIn = {
+  __typename: "OfficeWorkedIn",
   id: string,
-  forename?: string | null,
-  surname?: string | null,
-  birthDate?: string | null,
+  name?: string | null,
+  personID?: string | null,
   _version: number,
   _deleted?: boolean | null,
   _lastChangedAt: number,
   createdAt: string,
   updatedAt: string,
-  Location?: Location | null,
-  Hobbies?: ModelHobbiesConnection | null,
 };
 
-export type ModelHobbiesConnection = {
-  __typename: "ModelHobbiesConnection",
-  items?:  Array<Hobbies | null > | null,
-  nextToken?: string | null,
-  startedAt?: number | null,
-};
-
-export type UpdateMemberInput = {
+export type UpdateOfficeWorkedInInput = {
   id: string,
-  forename?: string | null,
-  surname?: string | null,
-  birthDate?: string | null,
+  name?: string | null,
+  personID?: string | null,
   _version?: number | null,
-  memberLocationId?: string | null,
 };
 
-export type DeleteMemberInput = {
+export type DeleteOfficeWorkedInInput = {
   id: string,
   _version?: number | null,
 };
 
-export type ModelLocationFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  and?: Array< ModelLocationFilterInput | null > | null,
-  or?: Array< ModelLocationFilterInput | null > | null,
-  not?: ModelLocationFilterInput | null,
+export type CreatePersonInput = {
+  id?: string | null,
+  surveyPosition?: number | null,
+  currentOffice?: string | null,
+  wishOffice?: string | null,
+  superheroAbility?: string | null,
+  projectFantasyName?: string | null,
+  jobForOneDay?: string | null,
+  newHobby?: string | null,
+  pizzaEstimate?: number | null,
+  wishForNextBereichsseminar?: string | null,
+  productIdea?: string | null,
+  _version?: number | null,
 };
 
-export type ModelLocationConnection = {
-  __typename: "ModelLocationConnection",
-  items?:  Array<Location | null > | null,
+export type ModelPersonConditionInput = {
+  surveyPosition?: ModelIntInput | null,
+  currentOffice?: ModelStringInput | null,
+  wishOffice?: ModelStringInput | null,
+  superheroAbility?: ModelStringInput | null,
+  projectFantasyName?: ModelStringInput | null,
+  jobForOneDay?: ModelStringInput | null,
+  newHobby?: ModelStringInput | null,
+  pizzaEstimate?: ModelIntInput | null,
+  wishForNextBereichsseminar?: ModelStringInput | null,
+  productIdea?: ModelStringInput | null,
+  and?: Array< ModelPersonConditionInput | null > | null,
+  or?: Array< ModelPersonConditionInput | null > | null,
+  not?: ModelPersonConditionInput | null,
+};
+
+export type ModelIntInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
+export type Person = {
+  __typename: "Person",
+  id: string,
+  surveyPosition?: number | null,
+  currentOffice?: string | null,
+  wishOffice?: string | null,
+  superheroAbility?: string | null,
+  projectFantasyName?: string | null,
+  jobForOneDay?: string | null,
+  newHobby?: string | null,
+  pizzaEstimate?: number | null,
+  wishForNextBereichsseminar?: string | null,
+  productIdea?: string | null,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+  createdAt: string,
+  updatedAt: string,
+  Pets?: ModelPetConnection | null,
+  OfficeWorkedIns?: ModelOfficeWorkedInConnection | null,
+};
+
+export type ModelPetConnection = {
+  __typename: "ModelPetConnection",
+  items?:  Array<Pet | null > | null,
   nextToken?: string | null,
   startedAt?: number | null,
 };
 
-export type ModelHobbiesFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  memberID?: ModelIDInput | null,
-  and?: Array< ModelHobbiesFilterInput | null > | null,
-  or?: Array< ModelHobbiesFilterInput | null > | null,
-  not?: ModelHobbiesFilterInput | null,
-};
-
-export type ModelMemberFilterInput = {
-  id?: ModelIDInput | null,
-  forename?: ModelStringInput | null,
-  surname?: ModelStringInput | null,
-  birthDate?: ModelStringInput | null,
-  and?: Array< ModelMemberFilterInput | null > | null,
-  or?: Array< ModelMemberFilterInput | null > | null,
-  not?: ModelMemberFilterInput | null,
-};
-
-export type ModelMemberConnection = {
-  __typename: "ModelMemberConnection",
-  items?:  Array<Member | null > | null,
+export type ModelOfficeWorkedInConnection = {
+  __typename: "ModelOfficeWorkedInConnection",
+  items?:  Array<OfficeWorkedIn | null > | null,
   nextToken?: string | null,
   startedAt?: number | null,
 };
 
-export type CreateLocationMutationVariables = {
-  input: CreateLocationInput,
-  condition?: ModelLocationConditionInput | null,
+export type UpdatePersonInput = {
+  id: string,
+  surveyPosition?: number | null,
+  currentOffice?: string | null,
+  wishOffice?: string | null,
+  superheroAbility?: string | null,
+  projectFantasyName?: string | null,
+  jobForOneDay?: string | null,
+  newHobby?: string | null,
+  pizzaEstimate?: number | null,
+  wishForNextBereichsseminar?: string | null,
+  productIdea?: string | null,
+  _version?: number | null,
 };
 
-export type CreateLocationMutation = {
-  createLocation?:  {
-    __typename: "Location",
+export type DeletePersonInput = {
+  id: string,
+  _version?: number | null,
+};
+
+export type ModelPetFilterInput = {
+  id?: ModelIDInput | null,
+  kind?: ModelStringInput | null,
+  personID?: ModelIDInput | null,
+  and?: Array< ModelPetFilterInput | null > | null,
+  or?: Array< ModelPetFilterInput | null > | null,
+  not?: ModelPetFilterInput | null,
+};
+
+export type ModelOfficeWorkedInFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  personID?: ModelIDInput | null,
+  and?: Array< ModelOfficeWorkedInFilterInput | null > | null,
+  or?: Array< ModelOfficeWorkedInFilterInput | null > | null,
+  not?: ModelOfficeWorkedInFilterInput | null,
+};
+
+export type ModelPersonFilterInput = {
+  id?: ModelIDInput | null,
+  surveyPosition?: ModelIntInput | null,
+  currentOffice?: ModelStringInput | null,
+  wishOffice?: ModelStringInput | null,
+  superheroAbility?: ModelStringInput | null,
+  projectFantasyName?: ModelStringInput | null,
+  jobForOneDay?: ModelStringInput | null,
+  newHobby?: ModelStringInput | null,
+  pizzaEstimate?: ModelIntInput | null,
+  wishForNextBereichsseminar?: ModelStringInput | null,
+  productIdea?: ModelStringInput | null,
+  and?: Array< ModelPersonFilterInput | null > | null,
+  or?: Array< ModelPersonFilterInput | null > | null,
+  not?: ModelPersonFilterInput | null,
+};
+
+export type ModelPersonConnection = {
+  __typename: "ModelPersonConnection",
+  items?:  Array<Person | null > | null,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
+export type CreatePetMutationVariables = {
+  input: CreatePetInput,
+  condition?: ModelPetConditionInput | null,
+};
+
+export type CreatePetMutation = {
+  createPet?:  {
+    __typename: "Pet",
     id: string,
-    name?: string | null,
+    kind?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -250,16 +296,17 @@ export type CreateLocationMutation = {
   } | null,
 };
 
-export type UpdateLocationMutationVariables = {
-  input: UpdateLocationInput,
-  condition?: ModelLocationConditionInput | null,
+export type UpdatePetMutationVariables = {
+  input: UpdatePetInput,
+  condition?: ModelPetConditionInput | null,
 };
 
-export type UpdateLocationMutation = {
-  updateLocation?:  {
-    __typename: "Location",
+export type UpdatePetMutation = {
+  updatePet?:  {
+    __typename: "Pet",
     id: string,
-    name?: string | null,
+    kind?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -268,16 +315,17 @@ export type UpdateLocationMutation = {
   } | null,
 };
 
-export type DeleteLocationMutationVariables = {
-  input: DeleteLocationInput,
-  condition?: ModelLocationConditionInput | null,
+export type DeletePetMutationVariables = {
+  input: DeletePetInput,
+  condition?: ModelPetConditionInput | null,
 };
 
-export type DeleteLocationMutation = {
-  deleteLocation?:  {
-    __typename: "Location",
+export type DeletePetMutation = {
+  deletePet?:  {
+    __typename: "Pet",
     id: string,
-    name?: string | null,
+    kind?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -286,18 +334,17 @@ export type DeleteLocationMutation = {
   } | null,
 };
 
-export type CreateHobbiesMutationVariables = {
-  input: CreateHobbiesInput,
-  condition?: ModelHobbiesConditionInput | null,
+export type CreateOfficeWorkedInMutationVariables = {
+  input: CreateOfficeWorkedInInput,
+  condition?: ModelOfficeWorkedInConditionInput | null,
 };
 
-export type CreateHobbiesMutation = {
-  createHobbies?:  {
-    __typename: "Hobbies",
+export type CreateOfficeWorkedInMutation = {
+  createOfficeWorkedIn?:  {
+    __typename: "OfficeWorkedIn",
     id: string,
     name?: string | null,
-    description?: string | null,
-    memberID?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -306,18 +353,17 @@ export type CreateHobbiesMutation = {
   } | null,
 };
 
-export type UpdateHobbiesMutationVariables = {
-  input: UpdateHobbiesInput,
-  condition?: ModelHobbiesConditionInput | null,
+export type UpdateOfficeWorkedInMutationVariables = {
+  input: UpdateOfficeWorkedInInput,
+  condition?: ModelOfficeWorkedInConditionInput | null,
 };
 
-export type UpdateHobbiesMutation = {
-  updateHobbies?:  {
-    __typename: "Hobbies",
+export type UpdateOfficeWorkedInMutation = {
+  updateOfficeWorkedIn?:  {
+    __typename: "OfficeWorkedIn",
     id: string,
     name?: string | null,
-    description?: string | null,
-    memberID?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -326,18 +372,17 @@ export type UpdateHobbiesMutation = {
   } | null,
 };
 
-export type DeleteHobbiesMutationVariables = {
-  input: DeleteHobbiesInput,
-  condition?: ModelHobbiesConditionInput | null,
+export type DeleteOfficeWorkedInMutationVariables = {
+  input: DeleteOfficeWorkedInInput,
+  condition?: ModelOfficeWorkedInConditionInput | null,
 };
 
-export type DeleteHobbiesMutation = {
-  deleteHobbies?:  {
-    __typename: "Hobbies",
+export type DeleteOfficeWorkedInMutation = {
+  deleteOfficeWorkedIn?:  {
+    __typename: "OfficeWorkedIn",
     id: string,
     name?: string | null,
-    description?: string | null,
-    memberID?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -346,120 +391,127 @@ export type DeleteHobbiesMutation = {
   } | null,
 };
 
-export type CreateMemberMutationVariables = {
-  input: CreateMemberInput,
-  condition?: ModelMemberConditionInput | null,
+export type CreatePersonMutationVariables = {
+  input: CreatePersonInput,
+  condition?: ModelPersonConditionInput | null,
 };
 
-export type CreateMemberMutation = {
-  createMember?:  {
-    __typename: "Member",
+export type CreatePersonMutation = {
+  createPerson?:  {
+    __typename: "Person",
     id: string,
-    forename?: string | null,
-    surname?: string | null,
-    birthDate?: string | null,
+    surveyPosition?: number | null,
+    currentOffice?: string | null,
+    wishOffice?: string | null,
+    superheroAbility?: string | null,
+    projectFantasyName?: string | null,
+    jobForOneDay?: string | null,
+    newHobby?: string | null,
+    pizzaEstimate?: number | null,
+    wishForNextBereichsseminar?: string | null,
+    productIdea?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Location?:  {
-      __typename: "Location",
-      id: string,
-      name?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
+    Pets?:  {
+      __typename: "ModelPetConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    Hobbies?:  {
-      __typename: "ModelHobbiesConnection",
+    OfficeWorkedIns?:  {
+      __typename: "ModelOfficeWorkedInConnection",
       nextToken?: string | null,
       startedAt?: number | null,
     } | null,
   } | null,
 };
 
-export type UpdateMemberMutationVariables = {
-  input: UpdateMemberInput,
-  condition?: ModelMemberConditionInput | null,
+export type UpdatePersonMutationVariables = {
+  input: UpdatePersonInput,
+  condition?: ModelPersonConditionInput | null,
 };
 
-export type UpdateMemberMutation = {
-  updateMember?:  {
-    __typename: "Member",
+export type UpdatePersonMutation = {
+  updatePerson?:  {
+    __typename: "Person",
     id: string,
-    forename?: string | null,
-    surname?: string | null,
-    birthDate?: string | null,
+    surveyPosition?: number | null,
+    currentOffice?: string | null,
+    wishOffice?: string | null,
+    superheroAbility?: string | null,
+    projectFantasyName?: string | null,
+    jobForOneDay?: string | null,
+    newHobby?: string | null,
+    pizzaEstimate?: number | null,
+    wishForNextBereichsseminar?: string | null,
+    productIdea?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Location?:  {
-      __typename: "Location",
-      id: string,
-      name?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
+    Pets?:  {
+      __typename: "ModelPetConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    Hobbies?:  {
-      __typename: "ModelHobbiesConnection",
+    OfficeWorkedIns?:  {
+      __typename: "ModelOfficeWorkedInConnection",
       nextToken?: string | null,
       startedAt?: number | null,
     } | null,
   } | null,
 };
 
-export type DeleteMemberMutationVariables = {
-  input: DeleteMemberInput,
-  condition?: ModelMemberConditionInput | null,
+export type DeletePersonMutationVariables = {
+  input: DeletePersonInput,
+  condition?: ModelPersonConditionInput | null,
 };
 
-export type DeleteMemberMutation = {
-  deleteMember?:  {
-    __typename: "Member",
+export type DeletePersonMutation = {
+  deletePerson?:  {
+    __typename: "Person",
     id: string,
-    forename?: string | null,
-    surname?: string | null,
-    birthDate?: string | null,
+    surveyPosition?: number | null,
+    currentOffice?: string | null,
+    wishOffice?: string | null,
+    superheroAbility?: string | null,
+    projectFantasyName?: string | null,
+    jobForOneDay?: string | null,
+    newHobby?: string | null,
+    pizzaEstimate?: number | null,
+    wishForNextBereichsseminar?: string | null,
+    productIdea?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Location?:  {
-      __typename: "Location",
-      id: string,
-      name?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
+    Pets?:  {
+      __typename: "ModelPetConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    Hobbies?:  {
-      __typename: "ModelHobbiesConnection",
+    OfficeWorkedIns?:  {
+      __typename: "ModelOfficeWorkedInConnection",
       nextToken?: string | null,
       startedAt?: number | null,
     } | null,
   } | null,
 };
 
-export type GetLocationQueryVariables = {
+export type GetPetQueryVariables = {
   id: string,
 };
 
-export type GetLocationQuery = {
-  getLocation?:  {
-    __typename: "Location",
+export type GetPetQuery = {
+  getPet?:  {
+    __typename: "Pet",
     id: string,
-    name?: string | null,
+    kind?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -468,19 +520,20 @@ export type GetLocationQuery = {
   } | null,
 };
 
-export type ListLocationsQueryVariables = {
-  filter?: ModelLocationFilterInput | null,
+export type ListPetsQueryVariables = {
+  filter?: ModelPetFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListLocationsQuery = {
-  listLocations?:  {
-    __typename: "ModelLocationConnection",
+export type ListPetsQuery = {
+  listPets?:  {
+    __typename: "ModelPetConnection",
     items?:  Array< {
-      __typename: "Location",
+      __typename: "Pet",
       id: string,
-      name?: string | null,
+      kind?: string | null,
+      personID?: string | null,
       _version: number,
       _deleted?: boolean | null,
       _lastChangedAt: number,
@@ -492,20 +545,21 @@ export type ListLocationsQuery = {
   } | null,
 };
 
-export type SyncLocationsQueryVariables = {
-  filter?: ModelLocationFilterInput | null,
+export type SyncPetsQueryVariables = {
+  filter?: ModelPetFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
   lastSync?: number | null,
 };
 
-export type SyncLocationsQuery = {
-  syncLocations?:  {
-    __typename: "ModelLocationConnection",
+export type SyncPetsQuery = {
+  syncPets?:  {
+    __typename: "ModelPetConnection",
     items?:  Array< {
-      __typename: "Location",
+      __typename: "Pet",
       id: string,
-      name?: string | null,
+      kind?: string | null,
+      personID?: string | null,
       _version: number,
       _deleted?: boolean | null,
       _lastChangedAt: number,
@@ -517,17 +571,16 @@ export type SyncLocationsQuery = {
   } | null,
 };
 
-export type GetHobbiesQueryVariables = {
+export type GetOfficeWorkedInQueryVariables = {
   id: string,
 };
 
-export type GetHobbiesQuery = {
-  getHobbies?:  {
-    __typename: "Hobbies",
+export type GetOfficeWorkedInQuery = {
+  getOfficeWorkedIn?:  {
+    __typename: "OfficeWorkedIn",
     id: string,
     name?: string | null,
-    description?: string | null,
-    memberID?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -536,21 +589,20 @@ export type GetHobbiesQuery = {
   } | null,
 };
 
-export type ListHobbiesQueryVariables = {
-  filter?: ModelHobbiesFilterInput | null,
+export type ListOfficeWorkedInsQueryVariables = {
+  filter?: ModelOfficeWorkedInFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListHobbiesQuery = {
-  listHobbies?:  {
-    __typename: "ModelHobbiesConnection",
+export type ListOfficeWorkedInsQuery = {
+  listOfficeWorkedIns?:  {
+    __typename: "ModelOfficeWorkedInConnection",
     items?:  Array< {
-      __typename: "Hobbies",
+      __typename: "OfficeWorkedIn",
       id: string,
       name?: string | null,
-      description?: string | null,
-      memberID?: string | null,
+      personID?: string | null,
       _version: number,
       _deleted?: boolean | null,
       _lastChangedAt: number,
@@ -562,22 +614,21 @@ export type ListHobbiesQuery = {
   } | null,
 };
 
-export type SyncHobbiesQueryVariables = {
-  filter?: ModelHobbiesFilterInput | null,
+export type SyncOfficeWorkedInsQueryVariables = {
+  filter?: ModelOfficeWorkedInFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
   lastSync?: number | null,
 };
 
-export type SyncHobbiesQuery = {
-  syncHobbies?:  {
-    __typename: "ModelHobbiesConnection",
+export type SyncOfficeWorkedInsQuery = {
+  syncOfficeWorkedIns?:  {
+    __typename: "ModelOfficeWorkedInConnection",
     items?:  Array< {
-      __typename: "Hobbies",
+      __typename: "OfficeWorkedIn",
       id: string,
       name?: string | null,
-      description?: string | null,
-      memberID?: string | null,
+      personID?: string | null,
       _version: number,
       _deleted?: boolean | null,
       _lastChangedAt: number,
@@ -589,55 +640,64 @@ export type SyncHobbiesQuery = {
   } | null,
 };
 
-export type GetMemberQueryVariables = {
+export type GetPersonQueryVariables = {
   id: string,
 };
 
-export type GetMemberQuery = {
-  getMember?:  {
-    __typename: "Member",
+export type GetPersonQuery = {
+  getPerson?:  {
+    __typename: "Person",
     id: string,
-    forename?: string | null,
-    surname?: string | null,
-    birthDate?: string | null,
+    surveyPosition?: number | null,
+    currentOffice?: string | null,
+    wishOffice?: string | null,
+    superheroAbility?: string | null,
+    projectFantasyName?: string | null,
+    jobForOneDay?: string | null,
+    newHobby?: string | null,
+    pizzaEstimate?: number | null,
+    wishForNextBereichsseminar?: string | null,
+    productIdea?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Location?:  {
-      __typename: "Location",
-      id: string,
-      name?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
+    Pets?:  {
+      __typename: "ModelPetConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    Hobbies?:  {
-      __typename: "ModelHobbiesConnection",
+    OfficeWorkedIns?:  {
+      __typename: "ModelOfficeWorkedInConnection",
       nextToken?: string | null,
       startedAt?: number | null,
     } | null,
   } | null,
 };
 
-export type ListMembersQueryVariables = {
-  filter?: ModelMemberFilterInput | null,
+export type ListPeopleQueryVariables = {
+  filter?: ModelPersonFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListMembersQuery = {
-  listMembers?:  {
-    __typename: "ModelMemberConnection",
+export type ListPeopleQuery = {
+  listPeople?:  {
+    __typename: "ModelPersonConnection",
     items?:  Array< {
-      __typename: "Member",
+      __typename: "Person",
       id: string,
-      forename?: string | null,
-      surname?: string | null,
-      birthDate?: string | null,
+      surveyPosition?: number | null,
+      currentOffice?: string | null,
+      wishOffice?: string | null,
+      superheroAbility?: string | null,
+      projectFantasyName?: string | null,
+      jobForOneDay?: string | null,
+      newHobby?: string | null,
+      pizzaEstimate?: number | null,
+      wishForNextBereichsseminar?: string | null,
+      productIdea?: string | null,
       _version: number,
       _deleted?: boolean | null,
       _lastChangedAt: number,
@@ -649,22 +709,29 @@ export type ListMembersQuery = {
   } | null,
 };
 
-export type SyncMembersQueryVariables = {
-  filter?: ModelMemberFilterInput | null,
+export type SyncPeopleQueryVariables = {
+  filter?: ModelPersonFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
   lastSync?: number | null,
 };
 
-export type SyncMembersQuery = {
-  syncMembers?:  {
-    __typename: "ModelMemberConnection",
+export type SyncPeopleQuery = {
+  syncPeople?:  {
+    __typename: "ModelPersonConnection",
     items?:  Array< {
-      __typename: "Member",
+      __typename: "Person",
       id: string,
-      forename?: string | null,
-      surname?: string | null,
-      birthDate?: string | null,
+      surveyPosition?: number | null,
+      currentOffice?: string | null,
+      wishOffice?: string | null,
+      superheroAbility?: string | null,
+      projectFantasyName?: string | null,
+      jobForOneDay?: string | null,
+      newHobby?: string | null,
+      pizzaEstimate?: number | null,
+      wishForNextBereichsseminar?: string | null,
+      productIdea?: string | null,
       _version: number,
       _deleted?: boolean | null,
       _lastChangedAt: number,
@@ -676,11 +743,12 @@ export type SyncMembersQuery = {
   } | null,
 };
 
-export type OnCreateLocationSubscription = {
-  onCreateLocation?:  {
-    __typename: "Location",
+export type OnCreatePetSubscription = {
+  onCreatePet?:  {
+    __typename: "Pet",
     id: string,
-    name?: string | null,
+    kind?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -689,11 +757,12 @@ export type OnCreateLocationSubscription = {
   } | null,
 };
 
-export type OnUpdateLocationSubscription = {
-  onUpdateLocation?:  {
-    __typename: "Location",
+export type OnUpdatePetSubscription = {
+  onUpdatePet?:  {
+    __typename: "Pet",
     id: string,
-    name?: string | null,
+    kind?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -702,11 +771,12 @@ export type OnUpdateLocationSubscription = {
   } | null,
 };
 
-export type OnDeleteLocationSubscription = {
-  onDeleteLocation?:  {
-    __typename: "Location",
+export type OnDeletePetSubscription = {
+  onDeletePet?:  {
+    __typename: "Pet",
     id: string,
-    name?: string | null,
+    kind?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -715,13 +785,12 @@ export type OnDeleteLocationSubscription = {
   } | null,
 };
 
-export type OnCreateHobbiesSubscription = {
-  onCreateHobbies?:  {
-    __typename: "Hobbies",
+export type OnCreateOfficeWorkedInSubscription = {
+  onCreateOfficeWorkedIn?:  {
+    __typename: "OfficeWorkedIn",
     id: string,
     name?: string | null,
-    description?: string | null,
-    memberID?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -730,13 +799,12 @@ export type OnCreateHobbiesSubscription = {
   } | null,
 };
 
-export type OnUpdateHobbiesSubscription = {
-  onUpdateHobbies?:  {
-    __typename: "Hobbies",
+export type OnUpdateOfficeWorkedInSubscription = {
+  onUpdateOfficeWorkedIn?:  {
+    __typename: "OfficeWorkedIn",
     id: string,
     name?: string | null,
-    description?: string | null,
-    memberID?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -745,13 +813,12 @@ export type OnUpdateHobbiesSubscription = {
   } | null,
 };
 
-export type OnDeleteHobbiesSubscription = {
-  onDeleteHobbies?:  {
-    __typename: "Hobbies",
+export type OnDeleteOfficeWorkedInSubscription = {
+  onDeleteOfficeWorkedIn?:  {
+    __typename: "OfficeWorkedIn",
     id: string,
     name?: string | null,
-    description?: string | null,
-    memberID?: string | null,
+    personID?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -760,90 +827,96 @@ export type OnDeleteHobbiesSubscription = {
   } | null,
 };
 
-export type OnCreateMemberSubscription = {
-  onCreateMember?:  {
-    __typename: "Member",
+export type OnCreatePersonSubscription = {
+  onCreatePerson?:  {
+    __typename: "Person",
     id: string,
-    forename?: string | null,
-    surname?: string | null,
-    birthDate?: string | null,
+    surveyPosition?: number | null,
+    currentOffice?: string | null,
+    wishOffice?: string | null,
+    superheroAbility?: string | null,
+    projectFantasyName?: string | null,
+    jobForOneDay?: string | null,
+    newHobby?: string | null,
+    pizzaEstimate?: number | null,
+    wishForNextBereichsseminar?: string | null,
+    productIdea?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Location?:  {
-      __typename: "Location",
-      id: string,
-      name?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
+    Pets?:  {
+      __typename: "ModelPetConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    Hobbies?:  {
-      __typename: "ModelHobbiesConnection",
+    OfficeWorkedIns?:  {
+      __typename: "ModelOfficeWorkedInConnection",
       nextToken?: string | null,
       startedAt?: number | null,
     } | null,
   } | null,
 };
 
-export type OnUpdateMemberSubscription = {
-  onUpdateMember?:  {
-    __typename: "Member",
+export type OnUpdatePersonSubscription = {
+  onUpdatePerson?:  {
+    __typename: "Person",
     id: string,
-    forename?: string | null,
-    surname?: string | null,
-    birthDate?: string | null,
+    surveyPosition?: number | null,
+    currentOffice?: string | null,
+    wishOffice?: string | null,
+    superheroAbility?: string | null,
+    projectFantasyName?: string | null,
+    jobForOneDay?: string | null,
+    newHobby?: string | null,
+    pizzaEstimate?: number | null,
+    wishForNextBereichsseminar?: string | null,
+    productIdea?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Location?:  {
-      __typename: "Location",
-      id: string,
-      name?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
+    Pets?:  {
+      __typename: "ModelPetConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    Hobbies?:  {
-      __typename: "ModelHobbiesConnection",
+    OfficeWorkedIns?:  {
+      __typename: "ModelOfficeWorkedInConnection",
       nextToken?: string | null,
       startedAt?: number | null,
     } | null,
   } | null,
 };
 
-export type OnDeleteMemberSubscription = {
-  onDeleteMember?:  {
-    __typename: "Member",
+export type OnDeletePersonSubscription = {
+  onDeletePerson?:  {
+    __typename: "Person",
     id: string,
-    forename?: string | null,
-    surname?: string | null,
-    birthDate?: string | null,
+    surveyPosition?: number | null,
+    currentOffice?: string | null,
+    wishOffice?: string | null,
+    superheroAbility?: string | null,
+    projectFantasyName?: string | null,
+    jobForOneDay?: string | null,
+    newHobby?: string | null,
+    pizzaEstimate?: number | null,
+    wishForNextBereichsseminar?: string | null,
+    productIdea?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Location?:  {
-      __typename: "Location",
-      id: string,
-      name?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
+    Pets?:  {
+      __typename: "ModelPetConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    Hobbies?:  {
-      __typename: "ModelHobbiesConnection",
+    OfficeWorkedIns?:  {
+      __typename: "ModelOfficeWorkedInConnection",
       nextToken?: string | null,
       startedAt?: number | null,
     } | null,

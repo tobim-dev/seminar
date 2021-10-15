@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Location": {
-            "name": "Location",
+        "Pet": {
+            "name": "Pet",
             "fields": {
                 "id": {
                     "name": "id",
@@ -10,81 +10,15 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "name": {
-                    "name": "name",
+                "kind": {
+                    "name": "kind",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "Locations",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "Hobbies": {
-            "name": "Hobbies",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "name": {
-                    "name": "name",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "description": {
-                    "name": "description",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "memberID": {
-                    "name": "memberID",
+                "personID": {
+                    "name": "personID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": false,
@@ -108,7 +42,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Hobbies",
+            "pluralName": "Pets",
             "attributes": [
                 {
                     "type": "model",
@@ -117,9 +51,9 @@ export const schema = {
                 {
                     "type": "key",
                     "properties": {
-                        "name": "byMember",
+                        "name": "byPerson",
                         "fields": [
-                            "memberID"
+                            "personID"
                         ]
                     }
                 },
@@ -141,8 +75,8 @@ export const schema = {
                 }
             ]
         },
-        "Member": {
-            "name": "Member",
+        "OfficeWorkedIn": {
+            "name": "OfficeWorkedIn",
             "fields": {
                 "id": {
                     "name": "id",
@@ -151,52 +85,177 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "forename": {
-                    "name": "forename",
+                "name": {
+                    "name": "name",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "surname": {
-                    "name": "surname",
+                "personID": {
+                    "name": "personID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "OfficeWorkedIns",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byPerson",
+                        "fields": [
+                            "personID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Person": {
+            "name": "Person",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "surveyPosition": {
+                    "name": "surveyPosition",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "currentOffice": {
+                    "name": "currentOffice",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "birthDate": {
-                    "name": "birthDate",
+                "wishOffice": {
+                    "name": "wishOffice",
                     "isArray": false,
-                    "type": "AWSDate",
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "Hobbies": {
-                    "name": "Hobbies",
+                "superheroAbility": {
+                    "name": "superheroAbility",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "projectFantasyName": {
+                    "name": "projectFantasyName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "jobForOneDay": {
+                    "name": "jobForOneDay",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "newHobby": {
+                    "name": "newHobby",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "pizzaEstimate": {
+                    "name": "pizzaEstimate",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "wishForNextBereichsseminar": {
+                    "name": "wishForNextBereichsseminar",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "productIdea": {
+                    "name": "productIdea",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "OfficeWorkedIns": {
+                    "name": "OfficeWorkedIns",
                     "isArray": true,
                     "type": {
-                        "model": "Hobbies"
+                        "model": "OfficeWorkedIn"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "memberID"
+                        "associatedWith": "personID"
                     }
                 },
-                "Location": {
-                    "name": "Location",
-                    "isArray": false,
+                "Pets": {
+                    "name": "Pets",
+                    "isArray": true,
                     "type": {
-                        "model": "Location"
+                        "model": "Pet"
                     },
                     "isRequired": false,
                     "attributes": [],
+                    "isArrayNullable": true,
                     "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "memberLocationId"
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "personID"
                     }
                 },
                 "createdAt": {
@@ -217,7 +276,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Members",
+            "pluralName": "People",
             "attributes": [
                 {
                     "type": "model",
@@ -244,5 +303,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "36fa61d9e898e9422ba715967192d9eb"
+    "version": "b4eb66965ed11d7e4d1935cba9485d73"
 };

@@ -6,22 +6,30 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 interface MemberCardProps {
-  forename: string;
-  surname: string;
+  jobForOneDay: string;
+  newHobby: string;
 }
 
 export const MemberCard: FunctionComponent<MemberCardProps> = ({
-  forename,
-  surname,
+  jobForOneDay,
+  newHobby,
 }) => {
   return (
-    <Card sx={{ width: 300, margin: 1 }}>
-      <CardContent>
+    <Card
+      //display: "flex", flexDirection: "column"
+      sx={{ width: 300, margin: 1 }}
+    >
+      <CardContent
+      // sx={{ flexGrow: 1 }}
+      >
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Member of DiE Department
         </Typography>
         <Typography variant="h5" component="div">
-          {forename} {surname}
+          {jobForOneDay}
+        </Typography>
+        <Typography variant="h5" component="div">
+          {newHobby}
         </Typography>
       </CardContent>
       <CardActions>
