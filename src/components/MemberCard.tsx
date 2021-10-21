@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 
 interface MemberCardProps {
   jobForOneDay: string;
-  newHobby: string;
+  newHobby: string | number;
 }
 
 export const MemberCard: FunctionComponent<MemberCardProps> = ({
