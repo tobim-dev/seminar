@@ -15,7 +15,6 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import LocalPizzaIcon from "@mui/icons-material/LocalPizza";
 import Typography from "@mui/material/Typography";
-import { PersonRemove, TextFields } from "@mui/icons-material";
 
 Amplify.configure(awsconfig);
 
@@ -35,22 +34,15 @@ export const App: FunctionComponent = () => {
     fetchMembers();
   }, [setPeopleList]);
 
-  console.log(selectedPower);
   const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log('test');
     setSelectedPower(ev.target.value);
-    if (myRef.current) {
-      myRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-
-    // if(powerId === ev.target.value){
   };
 
   useEffect(() => {
-    document?.getElementById(`${selectedPower}`)?.scrollIntoView();
+    document
+      ?.getElementById(`${selectedPower}`)
+      ?.scrollIntoView({ behavior: "smooth" });
   }, [selectedPower]);
-
-  // const executeScroll = () => myRef.current && myRef.current.scrollIntoView();
 
   return (
     <>
